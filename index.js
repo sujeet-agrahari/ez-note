@@ -5,6 +5,8 @@ import figlet from 'figlet';
 import * as prompts from '@clack/prompts';
 import chalk from 'chalk';
 import { addBroItem, getBroItem } from './service.js';
+import { program } from './command.js';
+
 
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
@@ -49,6 +51,9 @@ async function performAction(action, actionQuestion, actionHandler) {
 }
 
 async function main() {
+  if (process.argv.slice(2).length) {
+    program.parse();
+  }
   await welcome();
   let askMore = true;
   while (askMore) {
