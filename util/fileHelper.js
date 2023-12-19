@@ -15,6 +15,12 @@ async function readFromPath() {
     const jsonData = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(jsonData);
   } catch (error) {
+    if (error.code === 'ENOENT') {
+      // File doesn't exist, create it with an empty array
+      await fs.writeFile(filePath, '[]', 'utf-8');
+      return [];
+    }
+
     console.error(`Error reading from ${filePath}: ${error.message}`);
     return null;
   }

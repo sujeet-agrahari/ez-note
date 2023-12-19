@@ -7,7 +7,6 @@ import chalk from 'chalk';
 import { addBroItem, getBroItem } from './service.js';
 import { program } from './command.js';
 
-
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 async function welcome() {
@@ -53,39 +52,40 @@ async function performAction(action, actionQuestion, actionHandler) {
 async function main() {
   if (process.argv.slice(2).length) {
     program.parse();
-  }
-  await welcome();
-  let askMore = true;
-  while (askMore) {
-    await prompts.intro(chalk.bgCyan(chalk.bold(chalk.black(' So bro... '))));
+  } else {
+    await welcome();
+    let askMore = true;
+    while (askMore) {
+      await prompts.intro(chalk.bgCyan(chalk.bold(chalk.black(' So bro... '))));
 
-    const actionType = await prompts.select({
-      message: "What's the matter?",
-      options: [
-        { value: 'add', label: 'Add something' },
-        { value: 'get', label: 'Get something' },
-        // { value: 'delete', label: 'Delete something', hint: 'oh no' },
-      ],
-    });
+      const actionType = await prompts.select({
+        message: "What's the matter?",
+        options: [
+          { value: 'add', label: 'Add something' },
+          { value: 'get', label: 'Get something' },
+          // { value: 'delete', label: 'Delete something', hint: 'oh no' },
+        ],
+      });
 
-    await handleCancel(actionType);
+      await handleCancel(actionType);
 
-    switch (actionType) {
-      case 'add':
-        await performAction('Add', 'What to add bro?', addBroItem);
-        break;
-      case 'get':
-        await performAction('Get', 'What to get bro?', getBroItem);
-        break;
+      switch (actionType) {
+        case 'add':
+          await performAction('Add', 'What to add bro?', addBroItem);
+          break;
+        case 'get':
+          await performAction('Get', 'What to get bro?', getBroItem);
+          break;
+      }
+      askMore = await prompts.confirm({
+        message: 'Anything else bro?',
+      });
+      await handleCancel(askMore);
     }
-    askMore = await prompts.confirm({
-      message: 'Anything else bro?',
-    });
-    await handleCancel(askMore)
+    await prompts.intro(
+      chalk.bgCyan(chalk.bold(chalk.black(' Take care bro... \n\n')))
+    );
   }
-  await prompts.intro(
-    chalk.bgCyan(chalk.bold(chalk.black(' Take care bro... \n\n')))
-  );
 }
 
 main().catch((err) => console.log(err));
