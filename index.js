@@ -9,7 +9,7 @@ import { addBroItem, getBroItem } from './service.js';
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 async function welcome() {
-  await figlet('Bro', (err, data) => {
+  await figlet('Bhaiya', (err, data) => {
     console.log(gradient.pastel.multiline(data) + '\n');
   });
 
