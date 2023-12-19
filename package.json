@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "bro": "index.js"
+    "bhaiya": "index.js"
   },
   "keywords": [],
   "author": "",
