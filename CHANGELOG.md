@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/sujeet-agrahari/bro-cli/compare/v1.2.1...v1.2.2) (2023-12-19)
+
+
+### Bug Fixes
+
+* store data securely ([dc9cc35](https://github.com/sujeet-agrahari/bro-cli/commit/dc9cc35f11f7c06aa874f04710af1c9c6946a7bd))
+
 ### [1.2.1](https://github.com/sujeet-agrahari/bro-cli/compare/v1.2.0...v1.2.1) (2023-12-19)
 
 
