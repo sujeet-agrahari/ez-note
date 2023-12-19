@@ -1,11 +1,11 @@
 import fs from 'fs/promises';
 import path from 'path';
-import os from 'os';
 
 const fileName = '.data.json';
-const homeDirectory = os.homedir();
-const dataDirectory = path.join(homeDirectory, 'bhaiya');
-const filePath = path.join(dataDirectory, fileName);
+const appDataDirectory = process.env.APPDATA ||
+  (process.platform === 'darwin' ? path.join(process.env.HOME, 'Library', 'Preferences') : path.join(process.env.HOME, '.local', 'share'));
+
+const filePath = path.join(appDataDirectory, fileName);
 
 async function ensureDirectoryExists(directory) {
   try {
@@ -23,7 +23,7 @@ async function ensureDirectoryExists(directory) {
 async function writeToPath(data) {
   try {
     // Ensure the directory exists
-    await ensureDirectoryExists(dataDirectory);
+    await ensureDirectoryExists(appDataDirectory);
 
     const jsonData = JSON.stringify(data, null, 2);
     await fs.writeFile(filePath, jsonData, 'utf-8');
@@ -39,7 +39,7 @@ async function readFromPath() {
   } catch (error) {
     if (error.code === 'ENOENT') {
       // File doesn't exist, create it with an empty array
-      await ensureDirectoryExists(dataDirectory);
+      await ensureDirectoryExists(appDataDirectory);
       await fs.writeFile(filePath, '[]', 'utf-8');
       return [];
     }
