@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/sujeet-agrahari/ez-note/compare/v1.2.4...v2.0.0) (2023-12-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* change name
+
+### Features
+
+* change name ([946f104](https://github.com/sujeet-agrahari/ez-note/commit/946f104b302f250104c2ede697aaf5e5825c35a0))
+
 ### [1.2.4](https://github.com/sujeet-agrahari/bhaiya/compare/v1.2.3...v1.2.4) (2023-12-20)
 
 ### [1.2.3](https://github.com/sujeet-agrahari/bro-cli/compare/v1.2.2...v1.2.3) (2023-12-19)
