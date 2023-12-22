@@ -1,5 +1,5 @@
 {
-  "name": "bhaiya",
+  "name": "ez-note",
   "version": "1.2.4",
   "description": "A friendly command-line tool for interactive note taking with colorful gradients and Node.js power",
   "main": "index.js",
@@ -8,11 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "bhaiya": "index.js"
+    "ez-note": "index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sujeet-agrahari/bhaiya.git"
+    "url": "https://github.com/sujeet-agrahari/ez-note.git"
   },
   "keywords": [],
   "author": "",
