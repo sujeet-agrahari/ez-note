@@ -9,7 +9,7 @@ program.command('add')
   .argument('<string>', 'note to add')
   .action(async(str, options) => {
     await addBroItem(str);
-    console.log(chalk.greenBright('Added it bro!'))
+    console.log(chalk.greenBright('Added it!'))
     process.exit(0);
   });
 

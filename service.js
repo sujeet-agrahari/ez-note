@@ -13,7 +13,7 @@ async function getBroItem(broItem) {
   const data = await readFromPath();
   const topHit =  fuzzysort.go(broItem, data)[0];
   if (!topHit) {
-    return chalk.redBright('Nothing found bro!')
+    return chalk.redBright('Nothing found!')
   }
   return chalk.greenBright(topHit.target)
 }

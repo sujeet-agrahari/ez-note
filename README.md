@@ -1,11 +1,11 @@
-# Bhaiya
+# ez-note
 
 A friendly command-line tool for interactive note taking with colorful gradients and Node.js power.
 
 ## Use Without Installation
 
 ```bash
-npx bhaiya
+npx ez-note
 ```
 
 ## Installation
@@ -13,32 +13,32 @@ npx bhaiya
 Make sure you have [node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed.
 
 ```bash
-pnpm install -g bhaiya
+pnpm install -g ez-note
 ```
 
 OR
 
 ```bash
-npm install -g bhaiya
+npm install -g ez-note
 ```
 
 ## Usage
 
 ```bash
-bhaiya
+ez-note
 
 ```
 
 ### To add quickly
 
 ```
-bhaiya add 'This app is useful'
+ez-note add 'This app is useful'
 ```
 
 ### To get quickly
 
 ```
-bhaiya get 'app'
+ez-note get 'app'
 ```
 
 Follow the on-screen prompts to use additional feature.

@@ -10,17 +10,17 @@ import { program } from './command.js';
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 async function welcome() {
-  await figlet('Bhaiya', (err, data) => {
+  await figlet('EzNote', (err, data) => {
     console.log(gradient.pastel.multiline(data) + '\n');
   });
 
   console.log(
-    'Your bro: ' +
+    'Made by: ' +
       '\u001b]8;;https://github.com/sujeet-agrahari\u0007Sujeet Agrahari\u001b]8;;\u0007'
   );
 
   console.log(`
-    ${chalk.grey(' 🤝 I am here to help you bro! ')}
+    ${chalk.bgMagenta(chalk.white(' EzNote 📝 - Capturing thoughts with ease, effortlessly! '))}
   `);
 }
 
@@ -37,7 +37,7 @@ async function askBro(question, action) {
 
 async function handleCancel(value) {
   if (prompts.isCancel(value)) {
-    prompts.cancel('See you later bro!');
+    prompts.cancel('See you later!');
     process.exit(0);
   }
 }
@@ -56,7 +56,7 @@ async function main() {
     await welcome();
     let askMore = true;
     while (askMore) {
-      await prompts.intro(chalk.bgCyan(chalk.bold(chalk.black(' So bro... '))));
+      await prompts.intro(chalk.bgCyan(chalk.bold(chalk.black(' So... '))));
 
       const actionType = await prompts.select({
         message: "What's the matter?",
@@ -71,19 +71,19 @@ async function main() {
 
       switch (actionType) {
         case 'add':
-          await performAction('Add', 'What to add bro?', addBroItem);
+          await performAction('Add', 'What to add?', addBroItem);
           break;
         case 'get':
-          await performAction('Get', 'What to get bro?', getBroItem);
+          await performAction('Get', 'What to get?', getBroItem);
           break;
       }
       askMore = await prompts.confirm({
-        message: 'Anything else bro?',
+        message: 'Anything else?',
       });
       await handleCancel(askMore);
     }
-    await prompts.intro(
-      chalk.bgCyan(chalk.bold(chalk.black(' Take care bro... \n\n')))
+    await prompts.outro(
+      chalk.bgCyan(chalk.bold(chalk.black('\n Take care... \n\n')))
     );
   }
 }
