@@ -1,6 +1,6 @@
 {
   "name": "ez-note",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A friendly command-line tool for interactive note taking with colorful gradients and Node.js power",
   "main": "index.js",
   "type": "module",
